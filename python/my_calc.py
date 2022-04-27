@@ -106,8 +106,16 @@ class App(tk.Frame):
         try:
             ans = eval(self.text_box)
             self.ans_data.set(f"{ans:.{self.decimal_data}f}")
+        # 0除算エラー例外
+        except ZeroDivisionError:
+            messagebox.showerror(title="ZeroDivisionError!!", message=f"{ZeroDivisionError}\n0除算が式の中に存在します。")
+        # 文法エラー例外
         except SyntaxError:
-            messagebox.showerror(title="SyntaxError!!", message=f"{SyntaxError}\n不正な式です。")
+            # 未入力時は処理しない
+            if self.text_box == "":
+                pass
+            else:
+                messagebox.showerror(title="SyntaxError!!", message=f"{SyntaxError}\n不正な式です。")
 
     # 小数点設定
     def set_decimal(self):
@@ -133,8 +141,8 @@ class App(tk.Frame):
         except:
             pass
         self.decimal_data = data
-        print(self.decimal_data)
-
+        # 再演算による小数桁数反映
+        self.calc()
 
 def main():
     # App初期設定・実行
