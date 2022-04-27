@@ -35,7 +35,7 @@ class App(tk.Frame):
         menu_bar.add_cascade(label="設定", menu=config_menu)
 
         # 子メニュー(設定)
-        config_menu.add_command(label="小数点以下設定")
+        config_menu.add_command(label="小数点以下設定", command=self.set_decimal)
 
         # ボタン配置
         sym_1 = tk.Button(master, text='(', command=lambda:self.set_text(str_data="(")).grid(row=2, column=0, sticky=tk.NW+tk.NE+tk.S)
@@ -81,6 +81,9 @@ class App(tk.Frame):
         # 初期文字列の定義
         self.text_box=""
 
+        # 小数点桁数の初期値定義
+        self.decimal_data = 3
+
     # アプリケーションの終了
     def close_app(self):
         close_ans = messagebox.askyesno(title="確認", message="ウィンドウを閉じますか？")
@@ -101,9 +104,37 @@ class App(tk.Frame):
     # 演算処理
     def calc(self):
         try:
-            self.ans_data.set(f"{eval(self.text_box)}")
+            ans = eval(self.text_box)
+            self.ans_data.set(f"{ans:.{self.decimal_data}f}")
         except SyntaxError:
             messagebox.showerror(title="SyntaxError!!", message=f"{SyntaxError}\n不正な式です。")
+
+    # 小数点設定
+    def set_decimal(self):
+        self.set_decimal_window = tk.Toplevel()
+        self.set_decimal_window.geometry("250x200")
+        self.set_decimal_window.title("小数点以下設定")
+        self.set_decimal_window.resizable(width=False, height=False)
+
+        # 小数点以下桁数設定(ラベル・エントリー)
+        decimal_label = tk.Label(self.set_decimal_window, text="小数点以下桁数").grid(row=0, column=0, padx=5)
+        self.decimal_entry = tk.Entry(self.set_decimal_window, width=20, textvariable=self.decimal_data)
+        self.decimal_entry.insert(tk.END, self.decimal_data)
+        self.decimal_entry.grid(row=0, column=1)
+
+        # 反映ボタン
+        tk.Button(self.set_decimal_window, text="OK", relief="groove", command=lambda:self.set_decimal_data(data=self.decimal_entry.get())).grid(row=3, column=1)
+
+    # 小数点設定反映
+    def set_decimal_data(self, data):
+        # 子ウィンドウ(ダイアログ)の削除
+        try:
+            self.set_decimal_window.destroy()
+        except:
+            pass
+        self.decimal_data = data
+        print(self.decimal_data)
+
 
 def main():
     # App初期設定・実行
