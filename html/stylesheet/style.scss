@@ -1,8 +1,25 @@
-.grid_box{
-    display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(4,1fr);
-    .num, .sym{
-        background: goldenrod;
+body{
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.main_container{
+    height: 100vh;
+    .str_box{
+        height: 20%;
+        border-color: black;
+        background-color: #949898;
+        margin-bottom: 5px;
+        p{
+            line-height: 50px;
+        }
+    }
+    .grid_box{
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(4,1fr);
+        height: 75%;
+        .num, .sym{
+            background: goldenrod;
+        }
     }
 }
