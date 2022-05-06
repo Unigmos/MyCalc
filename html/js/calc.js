@@ -1,4 +1,5 @@
 let strs = "";
+let checklist = [];
 
 function set_data(data){
     var str_data = document.getElementById("str_area");
@@ -13,6 +14,12 @@ function clr_data(){
 }
 
 function calc(){
-    var calc_data = document.getElementById("str_area");
-    calc_data.innerHTML = eval(strs);
+    try{
+        var calc_data = document.getElementById("str_area");
+        calc_data.innerHTML = eval(strs);
+    }catch(Error){
+        alert("不正な式です。");
+        strs = "";
+        calc_data.innerHTML = "";
+    }
 }
