@@ -2,35 +2,42 @@
 <html>
     <head>
         <title>MyCalc_HTML</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="stylesheet/style.css">
         <script type="text/javascript" src="js/calc.js"></script>
     </head>
     <body>
-        <div class="grid_box">
-            <input class="sym" id="sym_0" value="(" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_1" value=")" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_2" value="%" type="button" onclick="set_data(this)"></input>
-            <input class="clr" id="clr_0" value="C" type="button" onclick="set_data(this)"></input>
+        <div class="main_container">
+            <div class="str_box">
+                <p id="str_area"></p>
+                <p id="ans_area"></p>
+            </div>
+            <div class="grid_box">
+                <input class="sym" id="brk_0" value="(" type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="brk_1" value=")" type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="sym_0" value="%" type="button" onclick="set_data(this)"></input>
+                <input class="clr" id="clr_0" value="C" type="button" onclick="clr_data()"></input>
 
-            <input class="num" id="num_7" value="7" type="button" onclick="set_data(this)"></input>
-            <input class="num" id="num_8" value="8" type="button" onclick="set_data(this)"></input>
-            <input class="num" id="num_9" value="9" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_3" value="/" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_7" value="7" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_8" value="8" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_9" value="9" type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="sym_1" value="/" type="button" onclick="set_data(this)"></input>
 
-            <input class="num" id="num_4" value="4" type="button" onclick="set_data(this)"></input>
-            <input class="num" id="num_5" value="5" type="button" onclick="set_data(this)"></input>
-            <input class="num" id="num_6" value="6" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_4" value="*" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_4" value="4" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_5" value="5" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_6" value="6" type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="sym_2" value="*" type="button" onclick="set_data(this)"></input>
 
-            <input class="num" id="num_1" value="1" type="button" onclick="set_data(this)"></input>
-            <input class="num" id="num_2" value="2" type="button" onclick="set_data(this)"></input>
-            <input class="num" id="num_3" value="3" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_5" value="-" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_1" value="1" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_2" value="2" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_3" value="3" type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="sym_3" value="-" type="button" onclick="set_data(this)"></input>
 
-            <input class="num" id="num_0" value="4" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_6" value="." type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_7" value="=" type="button" onclick="set_data(this)"></input>
-            <input class="sym" id="sym_8" value="+" type="button" onclick="set_data(this)"></input>
+                <input class="num" id="num_0" value="0" type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="sym_4" value="." type="button" onclick="set_data(this)"></input>
+                <input class="sym" id="sym_5" value="=" type="button" onclick="calc()"></input>
+                <input class="sym" id="sym_6" value="+" type="button" onclick="set_data(this)"></input>
+            </div>
         </div>
     </body>
 </html>
