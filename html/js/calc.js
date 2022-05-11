@@ -1,8 +1,8 @@
 // 変数定義
 let strs = "";
-let check_list = [];
 let sym_flag = false;
 
+// 文字列をセットする
 function set_data(data){
     var str_data = document.getElementById("str_area");
 
@@ -25,18 +25,23 @@ function set_data(data){
             sym_flag = false;
         }
     }
+    // 表記(出力)処理
     str_data.innerHTML = strs;
 }
 
+// Clearボタン(全消去)
 function clr_data(){
     var str_data = document.getElementById("str_area");
+    var ans_data = document.getElementById("ans_area");
     strs = "";
     str_data.innerHTML = strs;
+    ans_data.innerHTML = strs;
 }
 
+// 演算処理
 function calc(){
     try{
-        var calc_data = document.getElementById("str_area");
+        var calc_data = document.getElementById("ans_area");
         calc_data.innerHTML = eval(strs);
     }catch(Error){
         alert("不正な式です。");
