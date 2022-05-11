@@ -14,7 +14,9 @@ body {
 }
 
 .main_container .str_box p {
-  line-height: 50px;
+  font-size: clamp(40px, 2vh, 50px);
+  padding: 0 2%;
+  margin: 3px 0;
 }
 
 .main_container .grid_box {
@@ -28,5 +30,11 @@ body {
 
 .main_container .grid_box .num, .main_container .grid_box .sym {
   background: goldenrod;
+  border-radius: 5px;
+  font-size: clamp(25px, 2vh, 35px);
+}
+
+.main_container .grid_box .num:hover, .main_container .grid_box .sym:hover {
+  background-color: #e4ae24;
 }
 /*# sourceMappingURL=style.css.map */
