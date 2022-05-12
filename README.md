@@ -12,4 +12,5 @@
 ## 作成済み言語
 <ul>
   <li><a href="https://github.com/Unigmos/MyCalc/tree/main/python">Python</a></li>
+  <li><a href="https://github.com/Unigmos/MyCalc/tree/main/html">HTML</a></li>
 </ul>
